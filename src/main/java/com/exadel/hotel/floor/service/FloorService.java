@@ -11,7 +11,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -45,8 +45,8 @@ public class FloorService {
         return new FloorDto(floor.getNumber(),new HotelDto(floor.getHotel().getName()));
     }
 
-    public Iterator<FloorDto> getAll() {
-        return modelMapper.map(floorRepository.findAll(), new TypeToken<Iterator<FloorDto>>() {}.getType());
+    public List<FloorDto> getAll() {
+        return modelMapper.map(floorRepository.findAll(), new TypeToken<List<FloorDto>>() {}.getType());
     }
 
     public void delete(Long id) {
@@ -57,8 +57,8 @@ public class FloorService {
         floorRepository.deleteAll();
     }
 
-    public Iterator<FloorDto> getAllByHotelId(Long hotelId) {
-        return modelMapper.map(floorRepository.findAllByHotelId(hotelId), new TypeToken<Iterator<FloorDto>>() {}.getType());
+    public List<FloorDto> getAllByHotelId(Long hotelId) {
+        return modelMapper.map(floorRepository.findAllByHotelId(hotelId), new TypeToken<List<FloorDto>>() {}.getType());
     }
 
 

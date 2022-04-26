@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/role")
 @RequiredArgsConstructor
@@ -24,7 +26,7 @@ public class RoleController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<Iterable<RoleDto>> getAll() {
+    public ResponseEntity<List<RoleDto>> getAll() {
         return ResponseEntity.ok(roleService.getAll());
     }
 

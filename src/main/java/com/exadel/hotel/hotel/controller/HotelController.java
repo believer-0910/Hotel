@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/hotel")
@@ -29,7 +31,7 @@ public class HotelController {
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<Iterable<HotelDto>> getAll() {
+    public ResponseEntity<List<HotelDto>> getAll() {
         return ResponseEntity.ok(hotelService.getAll());
     }
 

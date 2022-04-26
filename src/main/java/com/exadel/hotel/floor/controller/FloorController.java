@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Iterator;
+import java.util.List;
 
 @RestController
 @RequestMapping("/floor")
@@ -16,7 +17,7 @@ public class FloorController {
     private final FloorService floorService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<Iterator<FloorDto>> getAll() {
+    public ResponseEntity<List<FloorDto>> getAll() {
         return ResponseEntity.ok(floorService.getAll());
     }
 
@@ -27,7 +28,7 @@ public class FloorController {
 
 
     @GetMapping("/getByHotel/{id}")
-    public ResponseEntity<Iterator<FloorDto>> getByHotel(@PathVariable("id") Long id) {
+    public ResponseEntity<List<FloorDto>> getByHotel(@PathVariable("id") Long id) {
         return ResponseEntity.ok(floorService.getAllByHotelId(id));
     }
 

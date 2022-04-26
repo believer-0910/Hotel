@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class HotelService {
@@ -34,8 +36,8 @@ public class HotelService {
         hotelRepository.deleteById(id);
     }
 
-    public Iterable<HotelDto> getAll() {
-        return modelMapper.map(hotelRepository.findAll(), new TypeToken<Iterable<HotelDto>>() {}.getType());
+    public List<HotelDto> getAll() {
+        return modelMapper.map(hotelRepository.findAll(), new TypeToken<List<HotelDto>>() {}.getType());
     }
 
     public void deleteAll() {

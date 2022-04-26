@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/type")
 @RequiredArgsConstructor
@@ -13,7 +15,7 @@ public class TypeController {
     private final TypeService typeService;
 
     @GetMapping("/getAll")
-    public ResponseEntity<Iterable<TypeDto>> getAll() {
+    public ResponseEntity<List<TypeDto>> getAll() {
         return ResponseEntity.ok(typeService.getAll());
     }
 

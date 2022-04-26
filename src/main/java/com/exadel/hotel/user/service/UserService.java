@@ -11,6 +11,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -50,15 +52,15 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public Iterable<UserDto> getAllUsers() {
-        return modelMapper.map(userRepository.findAll(), new TypeToken<Iterable<UserDto>>() {}.getType());
+    public List<UserDto> getAllUsers() {
+        return modelMapper.map(userRepository.findAll(), new TypeToken<List<UserDto>>() {}.getType());
     }
 
     public void deleteAllUsers() {
         userRepository.deleteAll();
     }
 
-    public Iterable<UserDto> getAllUsersByName(String name) {
-        return modelMapper.map(userRepository.findAllByFirstName(name), new TypeToken<Iterable<UserDto>>() {}.getType());
+    public List<UserDto> getAllUsersByName(String name) {
+        return modelMapper.map(userRepository.findAllByFirstName(name), new TypeToken<List<UserDto>>() {}.getType());
     }
 }

@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RoleService {
@@ -35,8 +37,8 @@ public class RoleService {
         roleRepository.deleteById(id);
     }
 
-    public Iterable<RoleDto> getAll() {
-        return modelMapper.map(roleRepository.findAll(), new TypeToken<Iterable<RoleDto>>() {}.getType());
+    public List<RoleDto> getAll() {
+        return modelMapper.map(roleRepository.findAll(), new TypeToken<List<RoleDto>>() {}.getType());
     }
 
     public void deleteAll() {

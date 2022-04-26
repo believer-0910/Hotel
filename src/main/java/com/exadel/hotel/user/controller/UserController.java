@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -18,7 +20,7 @@ public class UserController {
     }
 
     @GetMapping("getAll")
-    public ResponseEntity<Iterable<UserDto>> getAllUsers() {
+    public ResponseEntity<List<UserDto>> getAllUsers() {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
@@ -43,7 +45,7 @@ public class UserController {
     }
 
     @GetMapping("/getAllByName/{name}")
-    public ResponseEntity<Iterable<UserDto>> getAllUsersByName(@PathVariable String name) {
+    public ResponseEntity<List<UserDto>> getAllUsersByName(@PathVariable String name) {
         return ResponseEntity.ok(userService.getAllUsersByName(name));
     }
 

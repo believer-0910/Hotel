@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TypeService {
@@ -30,8 +32,8 @@ public class TypeService {
         return modelMapper.map(typeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Type with id " + id + " not found")), TypeDto.class);
     }
 
-    public Iterable<TypeDto> getAll() {
-        return modelMapper.map(typeRepository.findAll(), new TypeToken<Iterable<TypeDto>>() {}.getType());
+    public List<TypeDto> getAll() {
+        return modelMapper.map(typeRepository.findAll(), new TypeToken<List<TypeDto>>() {}.getType());
     }
 
     public void delete(Long id) {
