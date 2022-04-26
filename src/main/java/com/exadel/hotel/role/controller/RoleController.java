@@ -13,7 +13,7 @@ public class RoleController {
 
     private final RoleService roleService;
 
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<RoleDto> add(@RequestBody RoleDto roleDto) {
         return ResponseEntity.ok(roleService.add(roleDto));
     }
@@ -38,7 +38,7 @@ public class RoleController {
         roleService.deleteAll();
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<RoleDto> update(@PathVariable("id") Long id, @RequestBody RoleDto roleDto) {
         return ResponseEntity.ok(roleService.update(id, roleDto));
     }

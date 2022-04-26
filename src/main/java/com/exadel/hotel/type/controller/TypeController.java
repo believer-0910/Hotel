@@ -22,12 +22,12 @@ public class TypeController {
         return ResponseEntity.ok(typeService.get(id));
     }
 
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<TypeDto> add(@RequestBody TypeDto typeDto) {
         return ResponseEntity.ok(typeService.add(typeDto));
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<TypeDto> update(@PathVariable("id") Long id, @RequestBody TypeDto typeDto) {
         return ResponseEntity.ok(typeService.update(id, typeDto));
     }

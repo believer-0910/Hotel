@@ -13,12 +13,12 @@ public class HotelController {
 
     private final HotelService hotelService;
 
-    @PutMapping("/add")
+    @PostMapping("/add")
     public ResponseEntity<HotelDto> add(@RequestBody HotelDto hotelDto) {
         return ResponseEntity.ok(hotelService.add(hotelDto));
     }
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<HotelDto> update(@PathVariable("id") Long id, @RequestBody HotelDto hotelDto) {
         return ResponseEntity.ok(hotelService.update(id, hotelDto));
     }
