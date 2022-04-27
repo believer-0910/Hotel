@@ -49,7 +49,4 @@ public class RoomController {
     public void deleteAll() {
         roomService.deleteAll();
     }
-
-
-
 }

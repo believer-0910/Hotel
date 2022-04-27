@@ -24,7 +24,7 @@ public class TypeService {
 
     public TypeDto update(Long id, TypeDto typeDto) {
         Type type = typeRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Type with id " + id + " not found"));
-        type.setType(typeDto.getName());
+        type.setType(typeDto.getType());
         return modelMapper.map(typeRepository.save(type), TypeDto.class);
     }
 

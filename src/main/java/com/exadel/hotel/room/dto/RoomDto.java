@@ -13,6 +13,6 @@ import lombok.Setter;
 @Setter
 public class RoomDto {
     private int number;
-    private TypeDto type;
-    private FloorDto floor;
+    private TypeDto typeDto;
+    private FloorDto floorDto;
 }

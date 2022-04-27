@@ -1,7 +1,5 @@
 package com.exadel.hotel.user.service;
 
-import com.exadel.hotel.role.dto.RoleDto;
-import com.exadel.hotel.role.entity.Role;
 import com.exadel.hotel.role.service.RoleService;
 import com.exadel.hotel.user.dto.UserDto;
 import com.exadel.hotel.user.entity.User;
@@ -22,12 +20,7 @@ public class UserService {
     private final RoleService roleService;
 
     public UserDto addUser(UserDto userDto) {
-        User user = modelMapper.map(userDto, User.class);
-        user.setRole(getRole(userDto.getRoleDto().getName()));
-        userRepository.save(user);
-        UserDto userDto1 = modelMapper.map(user, UserDto.class);
-        userDto1.setRoleDto(modelMapper.map(user.getRole(), RoleDto.class));
-        return userDto1;
+        return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
     }
 
     public UserDto getUser(Long id) {
@@ -36,16 +29,9 @@ public class UserService {
 
     public UserDto updateUser(Long id, UserDto userDto) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found"));
-        modelMapper.map(userDto, user);
-        user.setRole(getRole(userDto.getRoleDto().getName()));
-        userRepository.save(user);
-        UserDto userDto1 = modelMapper.map(user, UserDto.class);
-        userDto1.setRoleDto(modelMapper.map(user.getRole(), RoleDto.class));
-        return userDto1;
-    }
-
-    private Role getRole(String roleName) {
-        return roleService.getRole(roleName);
+        User user1 = modelMapper.map(userDto, User.class);
+        user1.setId(user.getId());
+        return modelMapper.map(userRepository.save(user1), UserDto.class);
     }
 
     public void deleteUser(Long id) {
