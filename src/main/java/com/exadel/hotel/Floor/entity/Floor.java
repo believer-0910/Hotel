@@ -1,4 +1,4 @@
-package com.exadel.hotel.floor.entity;
+package com.exadel.hotel.Floor.entity;
 
 import com.exadel.hotel.hotel.entity.Hotel;
 import lombok.AllArgsConstructor;

@@ -1,6 +1,6 @@
 package com.exadel.hotel.room.dto;
 
-import com.exadel.hotel.floor.dto.FloorDto;
+import com.exadel.hotel.Floor.dto.FloorDto;
 import com.exadel.hotel.type.dto.TypeDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

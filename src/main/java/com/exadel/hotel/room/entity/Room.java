@@ -1,6 +1,6 @@
 package com.exadel.hotel.room.entity;
 
-import com.exadel.hotel.floor.entity.Floor;
+import com.exadel.hotel.Floor.entity.Floor;
 import com.exadel.hotel.type.entity.Type;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

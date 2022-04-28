@@ -3,6 +3,7 @@ package com.exadel.hotel.type.controller;
 import com.exadel.hotel.type.dto.TypeDto;
 import com.exadel.hotel.type.service.TypeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,7 +27,7 @@ public class TypeController {
 
     @PostMapping("/add")
     public ResponseEntity<TypeDto> add(@RequestBody TypeDto typeDto) {
-        return ResponseEntity.ok(typeService.add(typeDto));
+        return new ResponseEntity<>(typeService.add(typeDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")

@@ -3,6 +3,7 @@ package com.exadel.hotel.user.controller;
 import com.exadel.hotel.user.dto.UserDto;
 import com.exadel.hotel.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class UserController {
 
     @PostMapping("/add")
     public ResponseEntity<UserDto> addUser(@RequestBody UserDto userDto) {
-        return ResponseEntity.ok(userService.addUser(userDto));
+        return new ResponseEntity<>(userService.addUser(userDto), HttpStatus.CREATED);
     }
 
     @GetMapping("getAll")
