@@ -1,8 +1,8 @@
-package com.exadel.hotel.floor.service;
+package com.exadel.hotel.Floor.service;
 
-import com.exadel.hotel.floor.dto.FloorDto;
-import com.exadel.hotel.floor.entity.Floor;
-import com.exadel.hotel.floor.repository.FloorRepository;
+import com.exadel.hotel.Floor.entity.Floor;
+import com.exadel.hotel.Floor.dto.FloorDto;
+import com.exadel.hotel.Floor.repository.FloorRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;

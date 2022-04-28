@@ -3,6 +3,7 @@ package com.exadel.hotel.role.controller;
 import com.exadel.hotel.role.dto.RoleDto;
 import com.exadel.hotel.role.service.RoleService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +18,7 @@ public class RoleController {
 
     @PostMapping("/add")
     public ResponseEntity<RoleDto> add(@RequestBody RoleDto roleDto) {
-        return ResponseEntity.ok(roleService.add(roleDto));
+        return new ResponseEntity<>(roleService.add(roleDto), HttpStatus.CREATED);
     }
 
     @GetMapping("/get/{id}")

@@ -1,4 +1,4 @@
-package com.exadel.hotel.floor.dto;
+package com.exadel.hotel.Floor.dto;
 
 import com.exadel.hotel.hotel.dto.HotelDto;
 import lombok.AllArgsConstructor;

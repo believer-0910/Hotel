@@ -1,8 +1,9 @@
-package com.exadel.hotel.floor.controller;
+package com.exadel.hotel.Floor.controller;
 
-import com.exadel.hotel.floor.dto.FloorDto;
-import com.exadel.hotel.floor.service.FloorService;
+import com.exadel.hotel.Floor.dto.FloorDto;
+import com.exadel.hotel.Floor.service.FloorService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,7 +34,7 @@ public class FloorController {
 
     @PostMapping("/add")
     public ResponseEntity<FloorDto> add(@RequestBody FloorDto floorDto) {
-        return ResponseEntity.ok(floorService.add(floorDto));
+        return new ResponseEntity<>(floorService.add(floorDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")

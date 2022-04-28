@@ -1,6 +1,6 @@
-package com.exadel.hotel.floor.repository;
+package com.exadel.hotel.Floor.repository;
 
-import com.exadel.hotel.floor.entity.Floor;
+import com.exadel.hotel.Floor.entity.Floor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

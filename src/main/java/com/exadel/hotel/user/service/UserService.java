@@ -17,8 +17,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final ModelMapper modelMapper;
 
-    private final RoleService roleService;
-
     public UserDto addUser(UserDto userDto) {
         return modelMapper.map(userRepository.save(modelMapper.map(userDto, User.class)), UserDto.class);
     }

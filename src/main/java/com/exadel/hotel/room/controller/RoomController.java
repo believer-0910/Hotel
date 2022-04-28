@@ -3,13 +3,14 @@ package com.exadel.hotel.room.controller;
 import com.exadel.hotel.room.dto.RoomDto;
 import com.exadel.hotel.room.service.RoomService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/room")
+@RequestMapping("/rooms")
 @RequiredArgsConstructor
 public class RoomController {
 
@@ -32,7 +33,7 @@ public class RoomController {
 
     @PostMapping("/add")
     public ResponseEntity<RoomDto> add(@RequestBody RoomDto roomDto) {
-        return ResponseEntity.ok(roomService.add(roomDto));
+        return new ResponseEntity<>(roomService.add(roomDto), HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")

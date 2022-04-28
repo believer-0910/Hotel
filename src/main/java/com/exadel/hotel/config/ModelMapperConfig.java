@@ -1,7 +1,7 @@
 package com.exadel.hotel.config;
 
-import com.exadel.hotel.floor.dto.FloorDto;
-import com.exadel.hotel.floor.entity.Floor;
+import com.exadel.hotel.Floor.dto.FloorDto;
+import com.exadel.hotel.Floor.entity.Floor;
 import com.exadel.hotel.hotel.dto.HotelDto;
 import com.exadel.hotel.hotel.repository.HotelRepository;
 import com.exadel.hotel.role.dto.RoleDto;
@@ -37,8 +37,6 @@ public class ModelMapperConfig {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
 
-        // User -> UserDTO
-
         Converter<UserDto, User> UserDtoToUserConverter = new Converter<UserDto, User>() {
 
             private final ModelMapper modelMapper = new ModelMapper();
@@ -53,7 +51,7 @@ public class ModelMapperConfig {
                 return user;
             }
         };
-        // Floor -> FloorDTO
+
         Converter<FloorDto, Floor> FloorDtoFloorConverter = new Converter<FloorDto, Floor>() {
             private final ModelMapper modelMapper = new ModelMapper();
 
@@ -68,7 +66,6 @@ public class ModelMapperConfig {
             }
         };
 
-        // Room -> RoomDTO
         Converter<RoomDto, Room> RoomDtoToRoomConverter = new Converter<RoomDto, Room>() {
             private final ModelMapper modelMapper = new ModelMapper();
 
@@ -91,7 +88,6 @@ public class ModelMapperConfig {
             }
         };
 
-        // RoomDto -> Room
         Converter<Room, RoomDto> RoomToRoomDtoConverter = new Converter<Room, RoomDto>() {
             private final ModelMapper modelMapper = new ModelMapper();
 
@@ -114,7 +110,6 @@ public class ModelMapperConfig {
             }
         };
 
-        // FloorDto -> Floor
         Converter<Floor, FloorDto> FloorToFloorDtoConverter = new Converter<Floor, FloorDto>() {
             private final ModelMapper modelMapper = new ModelMapper();
 
@@ -129,7 +124,6 @@ public class ModelMapperConfig {
             }
         };
 
-        // UserDto -> User
         Converter<User, UserDto> UserToUserDtoConverter = new Converter<User, UserDto>() {
             private final ModelMapper modelMapper = new ModelMapper();
 
