@@ -1,9 +1,10 @@
-package com.exadel.hotel.type.controller;
+package com.exadel.hotel.controller;
 
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
+import com.exadel.hotel.type.controller.TypeController;
 import com.exadel.hotel.type.dto.TypeDto;
 import com.exadel.hotel.type.service.TypeService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -53,7 +54,6 @@ class TypeControllerTest {
     void testGetAll2() throws Exception {
         when(this.typeService.getAll()).thenReturn(new ArrayList<>());
         MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/type/getAll");
-        getResult.contentType("https://example.org/example");
         MockMvcBuilders.standaloneSetup(this.typeController)
                 .build()
                 .perform(getResult)
@@ -84,7 +84,6 @@ class TypeControllerTest {
     void testGet2() throws Exception {
         when(this.typeService.get((Long) any())).thenReturn(new TypeDto("Type"));
         MockHttpServletRequestBuilder getResult = MockMvcRequestBuilders.get("/type/get/{id}", 123L);
-        getResult.contentType("https://example.org/example");
         MockMvcBuilders.standaloneSetup(this.typeController)
                 .build()
                 .perform(getResult)
@@ -155,7 +154,6 @@ class TypeControllerTest {
     void testDelete2() throws Exception {
         doNothing().when(this.typeService).delete((Long) any());
         MockHttpServletRequestBuilder deleteResult = MockMvcRequestBuilders.delete("/type/delete/{id}", 123L);
-        deleteResult.contentType("https://example.org/example");
         MockMvcBuilders.standaloneSetup(this.typeController)
                 .build()
                 .perform(deleteResult)
@@ -182,7 +180,6 @@ class TypeControllerTest {
     void testDeleteAll2() throws Exception {
         doNothing().when(this.typeService).deleteAll();
         MockHttpServletRequestBuilder deleteResult = MockMvcRequestBuilders.delete("/type/deleteAll");
-        deleteResult.contentType("https://example.org/example");
         MockMvcBuilders.standaloneSetup(this.typeController)
                 .build()
                 .perform(deleteResult)
